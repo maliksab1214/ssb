@@ -1,0 +1,376 @@
+.rewards-button {
+  position: fixed;
+  right: 20px;
+  top: 110px;
+  width: 90px;
+  height: 110px;
+  border-radius: 20px; /* Smoothly rounded corners */
+  background: rgba(255, 255, 255, 0.15); /* Transparent, for a glassmorphism effect */
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37), inset 0 -2px 6px rgba(255, 255, 255, 0.1); /* Depth and glow */
+  backdrop-filter: blur(10px); /* Glass-like blur */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border for glass effect */
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.rewards-button:hover {
+  transform: scale(1.15); /* Slight zoom-in on hover */
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5), inset 0 -3px 8px rgba(255, 255, 255, 0.2); /* Enhanced glow on hover */
+}
+
+.rewards-button img {
+  width: 50px; /* Icon size increased for emphasis */
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Adds subtle shadow to the icon */
+}
+
+.rewards-button .label {
+  margin-top: 10px; /* Space between icon and label */
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for label */
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+}
+
+
+                /* Enhanced popup styling with purple gradient and 3D effect */
+                .rewards-popup {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, #4a1f75 0%, #2d1245 100%);
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                    perspective: 1000px;
+                    backdrop-filter: blur(5px);
+                }
+
+                .rewards-popup-content {
+                    background: linear-gradient(145deg, #673ab7, #4a1f75);
+                    padding: 30px;
+                    border-radius: 20px;
+                    position: relative;
+                    max-width: 800px;
+                    width: 90%;
+                    height: 80vh; /* Fixed height */
+                    display: flex;
+                    flex-direction: column;
+                    box-shadow: 
+                        0 20px 40px rgba(0, 0, 0, 0.4),
+                        0 0 100px rgba(103, 58, 183, 0.3);
+                    border: 1px solid rgba(255, 255, 255, 0.15);
+                    transform-style: preserve-3d;
+                    transform: translateZ(0) rotateX(2deg);
+                    animation: floatIn 0.6s ease-out;
+                }
+
+                @keyframes floatIn {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(20px) translateZ(-100px) rotateX(10deg);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0) translateZ(0) rotateX(2deg);
+                    }
+                }
+
+                /* Modified rewards grid for new layout */
+                .rewards-grid {
+                    flex: 1;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    padding: 10px;
+                    margin-right: -10px; /* Compensate for scrollbar */
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                }
+                /* Hide interface elements when rewards popup is visible */
+                .rewards-popup[style*="display: flex"] ~ .update-interface,
+                .rewards-popup[style*="display: flex"] ~ .level-details-popup,
+                .rewards-popup[style*="display: flex"] ~ .coins-info,
+                .rewards-popup[style*="display: flex"] ~ .update-btn,
+                .rewards-popup[style*="display: flex"] ~ .show-update-btn,
+                .rewards-popup[style*="display: flex"] ~ .tap-battery,
+                .rewards-popup[style*="display: flex"] ~ .profit-info,
+                .rewards-popup[style*="display: flex"] ~ .spin-button,
+                .rewards-popup[style*="display: flex"] ~ .tickets-display,
+                .rewards-popup[style*="display: flex"] ~ .level-button,
+                .rewards-popup[style*="display: flex"] ~ .ticketsDisplay,
+                .rewards-popup[style*="display: flex"] ~ .stats-info,
+                .rewards-popup[style*="display: flex"] ~ .tickets-value,
+                .rewards-popup[style*="display: flex"] ~ .stat-item {
+                    display: none !important;
+                }
+
+                /* Hide interface elements when reward notification is visible */
+                .reward-notification[style*="display: flex"] ~ .update-interface,
+                .reward-notification[style*="display: flex"] ~ .level-details-popup,
+                .reward-notification[style*="display: flex"] ~ .coins-info,
+                .reward-notification[style*="display: flex"] ~ .update-btn,
+                .reward-notification[style*="display: flex"] ~ .show-update-btn,
+                .reward-notification[style*="display: flex"] ~ .tap-battery,
+                .reward-notification[style*="display: flex"] ~ .profit-info,
+                .reward-notification[style*="display: flex"] ~ .spin-button,
+                .reward-notification[style*="display: flex"] ~ .tickets-display,
+                .reward-notification[style*="display: flex"] ~ .level-button,
+                .reward-notification[style*="display: flex"] ~ .ticketsDisplay,
+                .reward-notification[style*="display: flex"] ~ .stats-info,
+                .reward-notification[style*="display: flex"] ~ .tickets-value,
+                .reward-notification[style*="display: flex"] ~ .stat-item {
+                    display: none !important;
+                }
+                /* Row container for days 1-3 and 4-6 */
+                .rewards-row {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1px;
+                    margin-bottom: 15px;
+                    transform-style: preserve-3d;
+                }
+
+                /* Keep existing reward box styling */
+                .reward-box {
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(145deg, #292929, #1f1f1f);
+                    color: white;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    padding: 15px;
+                    text-align: center;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    min-height: 120px;
+                    transform: translateZ(10px);
+                }
+
+                /* Special styling for day 7 */
+                .reward-box.day-7 {
+                    grid-column: 1 / -1;
+                    background: linear-gradient(145deg, #2d2d2d, #222);
+                    min-height: 150px;
+                    margin: 20px auto;
+                    width: 50%;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    transform: translateZ(20px);
+                }
+
+
+                /* Keep existing state styles */
+                .reward-box.available {
+                    background: linear-gradient(145deg, #ffd700, #ffc000);
+                    color: #000;
+                    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+                    border: none;
+                    transform: scale(1.05) translateZ(30px);
+                }
+
+                .reward-box.available:hover {
+                    transform: scale(1.1) translateZ(40px);
+                    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+                }
+
+                .reward-box.collected {
+                    background: linear-gradient(145deg, #4a90e2, #357abd);
+                    color: white;
+                    cursor: not-allowed;
+                    opacity: 0.9;
+                    border: none;
+                }
+
+                .reward-box.future {
+                    background: linear-gradient(145deg, #444, #333);
+                    opacity: 0.7;
+                    cursor: not-allowed;
+                }
+
+                .rewards-title {
+                    color: white;
+                    font-size: 1.8em;
+                    text-align: center;
+                    margin: 0 0 30px 0; /* Adjusted margin */
+                    padding-top: 10px;
+                    font-weight: bold;
+                    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                    transform: translateZ(25px);
+                    letter-spacing: 2px;
+                }
+
+                .close-rewards {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    font-size: 24px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.3s ease;
+                    transform: translateZ(30px);
+                    z-index: 1001; /* Ensure button stays above content */
+                }
+
+                .close-rewards:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateZ(35px) rotate(90deg);
+                }
+                /* Reward notification popup */
+                .reward-notification {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.85);
+                    backdrop-filter: blur(8px);
+                    z-index: 2000;
+                    justify-content: center;
+                    align-items: center;
+                    perspective: 1000px;
+                }
+
+                .reward-notification-content {
+                    background: linear-gradient(145deg, #673ab7, #4a1f75);
+                    padding: 40px;
+                    border-radius: 20px;
+                    text-align: center;
+                    max-width: 400px;
+                    width: 90%;
+                    position: relative;
+                    transform-style: preserve-3d;
+                    animation: rewardPopIn 0.6s cubic-bezier(0.17, 0.89, 0.32, 1.28);
+                    box-shadow: 
+                        0 20px 40px rgba(0, 0, 0, 0.4),
+                        0 0 100px rgba(103, 58, 183, 0.3),
+                        inset 0 0 20px rgba(255, 255, 255, 0.1);
+                    border: 2px solid rgba(255, 255, 255, 0.1);
+                }
+
+                @keyframes rewardPopIn {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(60px) rotateX(-10deg) scale(0.8);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0) rotateX(0) scale(1);
+                    }
+                }
+
+                .reward-notification h2 {
+                    color: #ffd700;
+                    font-size: 2em;
+                    margin-bottom: 20px;
+                    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+                    transform: translateZ(50px);
+                }
+
+                .reward-coins {
+                    font-size: 3em;
+                    color: white;
+                    margin: 20px 0;
+                    font-weight: bold;
+                    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                    transform: translateZ(40px);
+                }
+
+                .reward-coins-icon {
+                    width: 80px;
+                    height: 80px;
+                    margin: 20px auto;
+                    animation: coinSpin 2s infinite ease-in-out;
+                    transform-style: preserve-3d;
+                }
+
+                @keyframes coinSpin {
+                    0% { transform: translateZ(60px) rotateY(0deg); }
+                    50% { transform: translateZ(60px) rotateY(180deg); }
+                    100% { transform: translateZ(60px) rotateY(360deg); }
+                }
+
+                .close-reward-notification {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: none;
+                    color: white;
+                    font-size: 24px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    transform: translateZ(30px);
+                }
+
+                .close-reward-notification:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateZ(35px) rotate(90deg);
+                }
+
+                .reward-shine {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(
+                        45deg,
+                        transparent 0%,
+                        rgba(255, 255, 255, 0.1) 45%,
+                        rgba(255, 255, 255, 0.2) 50%,
+                        rgba(255, 255, 255, 0.1) 55%,
+                        transparent 100%
+                    );
+                    animation: shine 2s infinite;
+                    pointer-events: none;
+                }
+
+                @keyframes shine {
+                    0% { transform: translateX(-100%); }
+                    100% { transform: translateX(100%); }
+                }
+                .rewards-grid::-webkit-scrollbar {
+                    width: 8px;
+                }
+
+                .rewards-grid::-webkit-scrollbar-track {
+                    background: rgba(0, 0, 0, 0.1);
+                    border-radius: 4px;
+                }
+
+                .rewards-grid::-webkit-scrollbar-thumb {
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 4px;
+                }
+
+                .rewards-grid::-webkit-scrollbar-thumb:hover {
+                    background: rgba(255, 255, 255, 0.4);
+                }

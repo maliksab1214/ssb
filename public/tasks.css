@@ -1,0 +1,345 @@
+/* Modern Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gradient-primary: linear-gradient(135deg, #6366f1, #4f46e5);
+    --gradient-success: linear-gradient(135deg, #22c55e, #16a34a);
+    --gradient-check: linear-gradient(135deg, #3b82f6, #2563eb);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Container Styling */
+.container {
+    max-width: 680px;
+    margin: 15px auto;
+    padding: 15px;
+    background: rgba(17, 24, 39, 0.7);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Headers */
+.container h1 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.container h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
+}
+
+.container h2 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 1.5rem 0 1rem 0;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Task List */
+.task-list {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* Task Items */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    height: 65px;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    pointer-events: none;
+}
+
+.task-item:hover {
+    transform: translateY(-2px) scale(1.01);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Task Information */
+.task-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-details {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.points-button, .check-button {
+    min-width: 80px;
+    height: 36px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Points Button */
+.points-button {
+    background: var(--gradient-success);
+    color: white;
+    box-shadow: 
+        0 4px 6px rgba(34, 197, 94, 0.2),
+        0 2px 4px rgba(34, 197, 94, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.points-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 8px rgba(34, 197, 94, 0.25),
+        0 3px 6px rgba(34, 197, 94, 0.15);
+}
+
+.points-button:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+}
+
+/* Check Button */
+.check-button {
+    background: var(--gradient-check);
+    color: white;
+    box-shadow: 
+        0 4px 6px rgba(59, 130, 246, 0.2),
+        0 2px 4px rgba(59, 130, 246, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.check-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 6px 8px rgba(59, 130, 246, 0.25),
+        0 3px 6px rgba(59, 130, 246, 0.15);
+}
+
+/* Congratulations Modal */
+.congrats-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(17, 24, 39, 0.95);
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    text-align: center;
+    width: 320px;
+    backdrop-filter: blur(12px);
+    animation: modalPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.congrats-modal h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.congrats-modal p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.coins-earned {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+}
+
+.coins-earned::before {
+    content: '🪙';
+    font-size: 2rem;
+    margin-right: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: spin 20s linear infinite;
+}
+
+/* Enhanced Animations */
+@keyframes modalPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.coins-animation {
+    position: absolute;
+    pointer-events: none;
+    animation: coinFloat 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    font-size: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes coinFloat {
+    0% {
+        transform: translateY(0) scale(1) rotateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.2) rotateY(180deg);
+    }
+    100% {
+        transform: translateY(-50px) scale(0.8) rotateY(360deg);
+        opacity: 0;
+    }
+}
+
+/* Separator */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    margin: 1.5rem 0;
+}
+
+/* Loading Effect */
+.task-item.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .container {
+        margin: 10px;
+        padding: 12px;
+    }
+
+    .task-item {
+        padding: 12px 14px;
+        height: auto;
+        min-height: 60px;
+    }
+
+    .task-details {
+        font-size: 0.875rem;
+    }
+
+    .points-button, .check-button {
+        min-width: 72px;
+        height: 32px;
+        font-size: 0.75rem;
+        padding: 0 12px;
+    }
+
+    .congrats-modal {
+        width: 90%;
+        max-width: 300px;
+        padding: 24px;
+    }
+}

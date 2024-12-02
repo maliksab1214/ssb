@@ -1,0 +1,575 @@
+.level-rank-bronze {
+    --rank-color: #cd7f32;
+    --progress-gradient: linear-gradient(90deg, #cd7f32 0%, #dba574 50%, #cd7f32 100%);
+}
+
+.level-rank-silver {
+    --rank-color: #c0c0c0;
+    --progress-gradient: linear-gradient(90deg, #c0c0c0 0%, #e0e0e0 50%, #c0c0c0 100%);
+}
+
+.level-rank-gold {
+    --rank-color: #ffd700;
+    --progress-gradient: linear-gradient(90deg, #ffd700 0%, #ffe44d 50%, #ffd700 100%);
+}
+
+.level-rank-platinum {
+    --rank-color: #e5e4e2;
+    --progress-gradient: linear-gradient(90deg, #e5e4e2 0%, #f7f7f7 50%, #e5e4e2 100%);
+}
+
+.level-rank-diamond {
+    --rank-color: #b9f2ff;
+    --progress-gradient: linear-gradient(90deg, #b9f2ff 0%, #e0f7fc 50%, #b9f2ff 100%);
+}
+
+/* Level button redesign */
+.level-button {
+    position: fixed;
+    top: 45px;
+    left: 70%;
+    transform: translateX(-50%) translateZ(0);
+    width: 200px;
+    height: 30px;
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+}
+.level-rank-bronze,
+.level-rank-silver,
+.level-rank-gold,
+.level-rank-platinum,
+.level-rank-diamond {
+    transition: background-color 0.3s ease;
+}
+/* Rank text style */
+.level-rank {
+    position: absolute;
+    left: 10px;
+    color: var(--rank-color);
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2;
+    text-transform: capitalize;
+    text-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.5),
+        0 0 5px var(--rank-color);
+    transition: text-shadow 0.3s ease;
+}
+/* Level text style */
+.level-text {
+    position: absolute;
+    right: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: text-shadow 0.3s ease;
+}
+
+/* Progress bar container */
+.level-progress-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.5),
+        inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Progress bar fill */
+.level-progress-fill {
+    height: 100%;
+    background: var(--progress-gradient);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Hover effect */
+.level-button:hover {
+    transform: translateX(-50%) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Level text style */
+.level-button::after {
+    position: absolute;
+    right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    z-index: 2;
+}
+/* Progress bar container */
+.level-progress-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.level-button:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.5),
+        0 8px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.level-rank-bronze .level-progress-fill {
+    height: 100%;
+    background: var(--progress-gradient);
+    border-radius: 8px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 0 10px rgba(205, 127, 50, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(205, 127, 50, 0.8) 0%,
+            rgba(219, 165, 116, 0.9) 50%,
+            rgba(205, 127, 50, 0.8) 100%
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.1) 10px,
+            rgba(255, 255, 255, 0.1) 20px
+        );
+}
+.level-rank-silver .level-progress-fill {
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(192, 192, 192, 0.8) 0%,
+            rgba(224, 224, 224, 0.9) 50%,
+            rgba(192, 192, 192, 0.8) 100%
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.1) 10px,
+            rgba(255, 255, 255, 0.1) 20px
+        );
+}
+.level-rank-gold .level-progress-fill {
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(255, 215, 0, 0.8) 0%,
+            rgba(255, 228, 77, 0.9) 50%,
+            rgba(255, 215, 0, 0.8) 100%
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.1) 10px,
+            rgba(255, 255, 255, 0.1) 20px
+        );
+}
+
+/* Enhanced Progress Fill - Platinum */
+.level-rank-platinum .level-progress-fill {
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(229, 228, 226, 0.8) 0%,
+            rgba(247, 247, 247, 0.9) 50%,
+            rgba(229, 228, 226, 0.8) 100%
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.1) 10px,
+            rgba(255, 255, 255, 0.1) 20px
+        );
+}
+
+/* Enhanced Progress Fill - Diamond */
+.level-rank-diamond .level-progress-fill {
+    background-image: 
+        linear-gradient(90deg, 
+            rgba(185, 242, 255, 0.8) 0%,
+            rgba(224, 247, 252, 0.9) 50%,
+            rgba(185, 242, 255, 0.8) 100%
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.15) 10px,
+            rgba(255, 255, 255, 0.15) 20px
+        );
+}
+.level-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        #4CAF50 0%,
+        #8BC34A 50%,
+        #CDDC39 100%
+    );
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Make sure the popup still works with the new design */
+.level-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+.level-button:hover {
+    transform: translateX(-50%) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.level-button:hover .level-progress-fill {
+    filter: brightness(1.2);
+    box-shadow:
+        0 0 15px var(--rank-color),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+}
+.level-popup-content {
+    background: linear-gradient(145deg, #3a67b7, #1f4a75);
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 100px rgba(58, 103, 183, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transform-style: preserve-3d;
+    animation: levelFloatIn 0.6s ease-out;
+}
+
+@keyframes levelFloatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) translateZ(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+    }
+}
+
+.level-details {
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.level-progress {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 20px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.level-progress-bar {
+    background: linear-gradient(90deg, #ffd700, #ffc000);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.close-level {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-level:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.level-reward {
+    background: linear-gradient(145deg, #ffd700, #ffc000);
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.level-up-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(145deg, #3a67b7, #1f4a75);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+/* Level Up Celebration Styles */
+
+.level-up-celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.level-up-content {
+    position: relative;
+    background: linear-gradient(145deg, #2a3f6f, #1a2845);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+    animation: scaleIn 0.5s ease-out;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.celebration-header {
+    margin-bottom: 30px;
+}
+
+.celebration-title {
+    position: relative;
+    display: inline-block;
+}
+
+.celebrate-text {
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(to right, #ffd700, #ffa500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s infinite;
+}
+
+.level-number {
+    font-size: 36px;
+    margin-top: 10px;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.star-burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, transparent 30%, rgba(255, 215, 0, 0.1) 100%);
+    animation: burst 2s infinite;
+}
+
+.celebration-details {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.reward-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.reward-icon {
+    font-size: 40px;
+    margin-right: 15px;
+    animation: bounce 1s infinite;
+}
+
+.reward-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.coins {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.new-rank, .next-goal {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.rank-name {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.goal-amount {
+    color: #00ffff;
+}
+
+.close-celebration {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.close-celebration:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.continue-button {
+    background: linear-gradient(to right, #ffd700, #ffa500);
+    border: none;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.continue-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Confetti Animation */
+.confetti-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ffd700;
+    animation: confettiFall 3s linear infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes burst {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes confettiFall {
+    from {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+.closing {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

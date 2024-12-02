@@ -1,0 +1,266 @@
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Telegram Game - Dashboard</title> 
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="skin.css">
+    <link rel="stylesheet" href="spin.css">
+    <link rel="stylesheet" href="rewards.css">
+    <link rel="stylesheet" href="level.css">
+    <link rel="stylesheet" href="level2.css">
+    <link rel="stylesheet" href="tasks.css">
+    <link rel="stylesheet" href="tap.css">
+    <link rel="stylesheet" href="update.css">
+    <link rel="stylesheet" href="status.css">
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="invite.css">
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="combo.css">
+    <link rel="stylesheet" href="rbox.css">
+</head>  
+<body>  
+    <!-- Header with Logo1, Username, and Coins -->  
+    <div class="header" id="headerSection">  
+        <div class="logo-container">  
+            <img src="logo1.png" alt="Logo1" class="logo circular-logo" id="logo1">  
+            <!-- Add skins button -->  
+             
+            <!-- Add spin button -->
+            <button class="spin-button" onclick="openSpinPopup()">
+                <img src="spin.png" alt="Spin">
+                <div class="label">Daily Spin</div>
+            </button>
+        </div>  
+        <div class="user-info">  
+            <div id="usernameDisplay" class="username">Username</div>  
+            <div class="coins-info">
+                <img src="coins.png" alt="Coins Logo" class="coins-logo" id="coinsLogo">
+                <div id="coinsDisplay" class="value">0</div>
+            </div>
+        </div>  
+        <div class="stat-item-ticket">
+                <img src="tickets.png" alt="Tickets" class="small-icon">
+                <span id="ticketsDisplay" class="stat-value tickets-value"></span>
+            </div>
+        </div>
+        <!-- Rewards button -->
+    <button class="rewards-button">
+      <img src="rewards.png" alt="Rewards Icon" />
+      <div class="label">Daily Reward</div>
+    </button>
+
+
+    <!-- Add the rewards popup structure -->
+    <div class="rewards-popup">
+        <div class="rewards-popup-content">
+            <button class="close-rewards">&times;</button>
+            <!-- The rewards grid will be populated by JavaScript -->
+            <div class="rewards-grid"></div>
+        </div>
+    </div>
+
+    <!-- Back button -->  
+    <button class="back-button" id="backButton">  
+        <span class="arrow">&larr;</span>  
+    </button>  
+    
+    <!-- Content area -->  
+    <div class="content" id="mainContent">  
+    </div>  
+    
+    <div class="level-button level-rank-bronze">
+        <div class="level-progress-container">
+            <div class="level-progress-fill" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <div class="level-details-popup">
+        <div class="level-details-content">
+            <button class="level-details-close">×</button>
+            <div class="all-levels">
+                <!-- Repeat this block for each level using JavaScript -->
+                <div class="level-card">
+                    <h3>Level 1</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Coins Needed:</span>
+                        <span class="coins-needed">5,000</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Reward Coins:</span>
+                        <span class="coins-reward">300</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Ticket Rewards:</span>
+                        <span class="tickets-reward">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Rank:</span>
+                        <span class="rank-name">Bronze</span>
+                    </div>
+                </div>
+                <!-- Repeat this block for each level up to Level 10 -->
+            </div>
+        </div>
+    </div>
+    <!-- Add this to your HTML file -->
+        <div id="updateInterface" class="update-interface">
+            <div class="update-header">
+                <div class="header-content">
+                    <img src="upgrade-icon.png" class="header-icon" alt="Upgrade">
+                    <h3>Upgrade System</h3>
+                </div>
+                <div class="close-btn">×</div>
+            </div>
+
+            <!-- Mining Coins -->
+            <div class="update-card" data-type="resetCoins">
+                <div class="update-info">
+                    <div class="icon-wrapper">
+                        <img src="mining.png" class="feature-icon" alt="Mining">
+                    </div>
+                    <div class="info-content">
+                        <div class="update-title">Mining Coins</div>
+                        <div class="current-value">Current: <span id="currentResetCoins" class="value-highlight">500</span></div>
+                        <div class="progress-bar">
+                            <div id="resetCoinsProgress" class="progress-fill"></div>
+                        </div>
+                        <div class="level-info">Level <span id="resetCoinsLevel">0</span>/<span id="resetCoinsMaxLevel">10</span></div>
+                    </div>
+                </div>
+                <button class="update-btn">
+                    <img src="update.png" class="update-icon" alt="Update">
+                    <span class="cost">500</span> coins
+                </button>
+            </div>
+
+            <!-- Battery Recharge -->
+            <div class="update-card" data-type="pauseMinutes">
+                <div class="update-info">
+                    <div class="icon-wrapper">
+                        <img src="battery.png" class="feature-icon" alt="Battery">
+                    </div>
+                    <div class="info-content">
+                        <div class="update-title">Battery Recharge</div>
+                        <div class="current-value">Current: <span id="currentPauseHour" class="value-highlight">3.0</span>h</div>
+                        <div class="progress-bar">
+                            <div id="pauseMinutesProgress" class="progress-fill"></div>
+                        </div>
+                        <div class="level-info">Level <span id="pauseMinutesLevel">0</span>/<span id="pauseMinutesMaxLevel">5</span></div>
+                    </div>
+                </div>
+                <button class="update-btn">
+                    <img src="update.png" class="update-icon" alt="Update">
+                    <span class="cost">500</span> coins
+                </button>
+            </div>
+
+            <!-- Coins Per Tap -->
+            <div class="update-card" data-type="tapper">
+                <div class="update-info">
+                    <div class="icon-wrapper">
+                        <img src="tap.png" class="feature-icon" alt="Tap">
+                    </div>
+                    <div class="info-content">
+                        <div class="update-title">Coins Per Tap</div>
+                        <div class="current-value">Current: <span id="currentTapper" class="value-highlight">1</span></div>
+                        <div class="progress-bar">
+                            <div id="tapperProgress" class="progress-fill"></div>
+                        </div>
+                        <div class="level-info">Level <span id="tapperLevel">0</span>/<span id="tapperMaxLevel">8</span></div>
+                    </div>
+                </div>
+                <button class="update-btn">
+                    <img src="update.png" class="update-icon" alt="Update">
+                    <span class="cost">500</span> coins
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="profit-info">
+        <img src="profit.png" alt="Profit" class="profit-logo">
+        <span id="globalProfitDisplay">0</span>
+    </div>
+        <!-- Skin Button -->
+        <button id="skinsButton" class="skins-button">
+            <img src="images/skins.png" class="small-skin-logo" alt="Skins">
+        </button>
+
+        <!-- Popup Structure -->
+        <div id="skinsPopup" class="skins-popup">
+            <div class="skins-popup-content">
+                <button class="close-button">×</button>
+                <div class="skins-popup-header">
+                    <h3>Select a Skin</h3>
+                    <div class="level-guideline">Unlock new skins as you level up!</div>
+                </div>
+                <div class="skins-grid"></div>
+                <div class="skin-description">Select a skin to see its description</div>
+                <button class="skin-select-button locked">Select Skin</button>
+            </div>
+        </div>
+        <div class="decorative-bar"></div>
+    <button class="rdbox-button">
+      <img src="rdbox.png" alt="airdrop" class="airdrop-img" />
+      <div class="label" id="countdown"></div>
+    </button>
+
+
+    <!-- Navigation menu -->  
+    <nav class="navigation">  
+        <a href="#" class="nav-button" data-section="home">  
+            <img src="home.png" alt="Home">  
+            <span>Home</span>  
+        </a>  
+        <a href="#" class="nav-button" data-section="tasks">  
+            <img src="tasks.png" alt="Tasks">  
+            <span>Tasks</span>  
+        </a>  
+        <a href="#" class="nav-button" data-section="reddit">  
+            <img src="reddit.png" alt="Reddit">  
+            <span>Puzzle</span>  
+        </a>  
+        <a href="#" class="nav-button" data-section="miniGames">  
+            <img src="miniGames.png" alt="miniGames">  
+            <span>miniGames</span>  
+        </a>  
+        <a href="#" class="nav-button" data-section="status">  
+            <img src="status.png" alt="Status">  
+            <span>LeaderBoard</span>  
+        </a>  
+        <a href="#" class="nav-button" data-section="cards">  
+            <img src="cards.png" alt="Cards">  
+            <span>Cards</span>  
+        </a>  
+    </nav>
+    <script>
+      // Countdown Logic - Calculate Days Left Once
+      const targetDate = new Date("2024-12-31T23:59:59"); // Set your desired target date
+      const countdownElement = document.getElementById("countdown");
+
+      const now = new Date();
+      const timeLeft = targetDate - now;
+
+      if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        countdownElement.textContent = `${days} days left`;
+      } else {
+        countdownElement.textContent = "Airdrop Ended";
+      }
+    </script>
+    
+    <script src="script2.js"></script>  
+    <script src="skins.js"></script>  
+    <script src="spin.js"></script>
+    <script src="rewards.js"></script>
+    <script src="level.js"></script>
+    <script src="tasks.js"></script>
+    <script src="tap.js"></script>
+    <script src="update.js"></script>
+    <script src="status.js"></script>
+    <script src="tron.js"></script>
+    <script src="game.js"></script>
+    <script src="invite.js"></script>
+    <script src="cards.js"></script>
+</body>  
+</html>

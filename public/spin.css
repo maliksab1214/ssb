@@ -1,0 +1,486 @@
+:root {
+  --wheel-size: 320px;
+  --segment-size: 40px;
+  --border-size: 12px;
+  --border-width: 15px;
+  --primary-color: #4776E6;
+  --secondary-color: #8E54E9;
+  --accent-color: #FF6B6B;
+  --background-color: #ffffff;
+  --text-color: #2d3436;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.spin-button {
+  position: fixed;
+  left: 15px;
+  top: 110px;
+  width: 90px; /* Matches the size of the Rewards button */
+  height: 110px;
+  border-radius: 20px; /* Matches the card style */
+  background: rgba(255, 255, 255, 0.15); /* Glassmorphism background */
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37), inset 0 -2px 6px rgba(255, 255, 255, 0.1); /* Depth and glow */
+  backdrop-filter: blur(10px); /* Glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.spin-button:hover {
+  transform: scale(1.15); /* Slight zoom */
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5), inset 0 -3px 8px rgba(255, 255, 255, 0.2); /* Enhanced glow */
+}
+
+.spin-button img {
+  width: 50px; /* Icon size */
+  height: 50px;
+  object-fit: contain;
+  animation: spin 2s linear infinite; /* Continuous spinning animation */
+}
+
+.spin-button:hover img {
+  animation: spin-fast 1s linear infinite; /* Faster spin on hover */
+}
+
+.spin-button .label {
+  margin-top: 10px; /* Space between icon and label */
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif; /* Matches the modern font */
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+}
+
+/* Keyframes for spinning animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-fast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.spin-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px 25px 35px 25px; /* Increased bottom padding */
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 90vw;
+    width: max-content;
+    text-align: center;
+}
+
+      .spin-popup.active {
+        display: block;
+      }
+      .spin-play {
+        padding: 12px 30px;
+        background: linear-gradient(135deg, #4776E6, #8E54E9);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .spin-play:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* Close Button */
+      .spin-close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        color: #666;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        z-index: 1001;
+      }
+
+      .spin-close:hover {
+        background: rgba(0, 0, 0, 0.1);
+        transform: scale(1.1);
+      }
+
+      /* Wheel Container and Wheel */
+
+.spin-wheel-container {
+    width: var(--wheel-size);
+    height: var(--wheel-size);
+    margin: 20px auto;
+    position: relative;
+    overflow: vhidden;;
+    padding-top: 0; /* Remove any top padding that might have been added for the pointer */
+}
+.spin-wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 15px solid #2d3436;
+    position: relative;
+    transition: transform 4s cubic-bezier(0.22, 1, 0.36, 1);
+    background: white;
+    overflow: hidden;
+   margin: 0 auto; 
+}
+      /* Wheel Overlay Effects */
+      .spin-wheel::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.1));
+        z-index: 2;
+      }
+
+      /* Pointer Indicator */
+.spin-wheel::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+      45deg,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0.3) 50%,
+      rgba(255,255,255,0) 60%
+  );
+  z-index: 2;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.spin-wheel:hover::after {
+  transform: rotate(180deg);
+}
+
+      /* Wheel Segments */
+.spin-segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    left: 50%;
+    top: 50%;
+    margin-left: -50%;
+    margin-top: -50%;
+    overflow: hidden;
+    transition: filter 0.3s ease;
+}
+
+.spin-segment:nth-child(1) { background: linear-gradient(135deg, #a8e6cf, #dcedc1); }
+.spin-segment:nth-child(2) { background: linear-gradient(135deg, #ffd3b6, #ffaaa5); }
+.spin-segment:nth-child(3) { background: linear-gradient(135deg, #b5eaea, #a1cae2); }
+.spin-segment:nth-child(4) { background: linear-gradient(135deg, #d4a5a5, #e7d3d3); }
+.spin-segment:nth-child(5) { background: linear-gradient(135deg, #c7ceea, #b6b4c2); }
+.spin-segment:nth-child(6) { background: linear-gradient(135deg, #f2d1d1, #dfd3d3); }
+.spin-segment:nth-child(7) { background: linear-gradient(135deg, #b8e0d2, #a1cdb9); }
+.spin-segment:nth-child(8) { background: linear-gradient(135deg, #eac4d5, #dbb7c7); }
+
+/* Winner segment glow effect */
+.spin-segment.winner {
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+}
+.segment-content {
+  position: absolute;
+  width: 100%;
+  left: 15%;
+  top: 25%;
+  transform-origin: 0 0;
+  transform: rotate(75deg);
+  font-size: 18px;
+  font-weight: bold;
+   color: #2d3436;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow:
+      -1px -1px 0 #fff,
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff;
+  padding: 5px;
+}
+
+/* Improved pointer design */
+      .spin-segment span {
+        transform-origin: center;
+        white-space: nowrap;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      /* Info Section */
+.spin-info {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+}
+
+      .spin-tickets {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--text-color);
+        margin-bottom: 15px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.5px;
+      }
+
+      /* Play Button */
+      .spin-play {
+        padding: 12px 30px;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 700;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        box-shadow: 0 10px 25px rgba(71, 118, 230, 0.3);
+      }
+
+      .spin-play:hover:not(:disabled) {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(71, 118, 230, 0.4);
+      }
+
+      .spin-play:disabled {
+        background: linear-gradient(135deg, #d1d1d1, #a8a8a8);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.7;
+      }
+
+      /* Winner Modal */
+      .winner-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        background: var(--gradient-primary);
+        padding: 30px;
+        border-radius: 30px;
+        text-align: center;
+        z-index: 1002;
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        color: white;
+        box-shadow: 
+          0 20px 60px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+
+      .winner-modal.active {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      .winner-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        font-weight: 800;
+      }
+
+      .winner-tickets {
+        font-size: 42px;
+        margin: 20px 0;
+        font-weight: 800;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        animation: pulseScale 1s infinite;
+      }
+
+      /* Confetti Animation */
+      .celebration {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1001;
+        perspective: 1000px;
+      }
+
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        transform-style: preserve-3d;
+      }
+
+      /* Animations */
+      @keyframes popupReveal {
+        0% { 
+          opacity: 0;
+          transform: translate(-50%, -40%) scale(0.8);
+        }
+        100% { 
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      @keyframes pulseScale {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+
+      @keyframes confettiFall {
+        0% { 
+          transform: 
+            translateY(-100vh) 
+            rotateX(0deg) 
+            rotateY(0deg) 
+            rotateZ(0deg); 
+          opacity: 1; 
+        }
+        100% { 
+          transform: 
+            translateY(100vh) 
+            rotateX(360deg) 
+            rotateY(360deg) 
+            rotateZ(360deg); 
+          opacity: 0; 
+        }
+      }
+.spin-wheel::after {
+    display: none;
+}
+      /* Media Queries for Responsiveness */
+      @media (max-width: 480px) {
+        :root {
+            --wheel-size: 280px;
+        }
+        .spin-popup {
+            padding: 20px 20px 30px 20px;
+        }
+        .spin-popup {
+          padding: 20px;
+        }
+        .segment-content {
+            font-size: 16px;
+            left: 12%;
+            top: 22%;
+        }
+
+        .spin-segment {
+          font-size: 16px;
+        }
+
+        .spin-tickets {
+          font-size: 20px;
+        }
+
+        .spin-play {
+          padding: 10px 25px;
+          font-size: 16px;
+        }
+
+        .winner-tickets {
+          font-size: 36px;
+        }
+      }
+/* Toast Notification Styles */
+.daily-tickets-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #4776E6, #8E54E9);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(71, 118, 230, 0.3);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  transform: translateX(120%);
+  opacity: 0;
+  animation: slideIn 0.5s ease forwards, slideOut 0.5s ease 4.5s forwards;
+}
+
+.daily-tickets-toast .ticket-icon {
+  font-size: 24px;
+}
+
+.daily-tickets-toast .message {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.daily-tickets-toast .tickets {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 4px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}

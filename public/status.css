@@ -1,0 +1,241 @@
+.leaderboard-container {
+  padding: 10px; /* Reduced padding */
+  max-width: 800px; /* Adjusted width */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+}
+
+body.status-active {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.status-active .leaderboard-container {
+  background-color: transparent;
+}
+
+.status-active #backButton {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 8px 16px; /* Reduced padding */
+  border-radius: 6px; /* Adjusted radius */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.status-active #backButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.top-three-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 20px 0 30px; /* Reduced margin */
+  min-height: 200px; /* Reduced height */
+  padding: 10px; /* Reduced padding */
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px; /* Reduced radius */
+  gap: 5px; /* Reduced gap between players */
+}
+
+.top-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px; /* Reduced padding */
+  transition: all 0.3s ease;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px; /* Reduced radius */
+}
+
+.top-player:hover {
+  transform: translateY(-5px); /* Adjusted hover effect */
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.first-place {
+  order: 2;
+  height: 180px; /* Reduced height */
+  width: 120px; /* Adjusted width */
+  margin: 0 5px; /* Reduced margin */
+}
+
+.second-place {
+  order: 1;
+  height: 160px; /* Reduced height */
+  width: 100px; /* Reduced width */
+}
+
+.third-place {
+  order: 3;
+  height: 160px; /* Reduced height */
+  width: 100px; /* Reduced width */
+}
+
+.trophy {
+  margin: 5px 0; /* Reduced margin */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.first-place .trophy {
+  width: 60px; /* Reduced size */
+  height: 60px;
+}
+
+.second-place .trophy,
+.third-place .trophy {
+  width: 50px; /* Reduced size */
+  height: 50px;
+}
+
+.top-player .spusername {
+  font-size: 14px; /* Reduced font size */
+  font-weight: 600;
+  margin: 4px 0; /* Reduced margin */
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.first-place .spusername {
+  font-size: 16px; /* Adjusted font size */
+  color: #ffd700;
+}
+
+.second-place .spusername,
+.third-place .spusername {
+  font-size: 14px; /* Adjusted font size */
+  color: #c0c0c0;
+}
+
+.top-player .coins {
+  font-size: 14px; /* Reduced font size */
+   color: #4ade80;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Reduced gap */
+  margin-top: 2px;
+}
+.coins::before {
+   content: "";
+  display: inline-block;
+  width: 20px; /* Reduced size */
+  height: 20px;
+  background-image: url('profit.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.leaderboard-list {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px; /* Reduced radius */
+  overflow-y: auto;
+  max-height: 400px; /* Reduced height */
+  padding: 8px; /* Reduced padding */
+}
+
+.leaderboard-item .coins {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+   color: #4ade80;
+  gap: 6px; /* Reduced gap */
+  font-size: 14px; /* Reduced font size */
+}
+
+.leaderboard-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateX(3px); /* Reduced hover effect */
+}
+
+.rank {
+  color: #94a3b8;
+  font-weight: bold;
+  font-size: 14px; /* Reduced font size */
+}
+
+.spusername {
+  color: #e2e8f0;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.current-user {
+  background-color: rgba(255, 215, 0, 0.1) !important;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* Scrollbar Styling */
+.leaderboard-list::-webkit-scrollbar {
+  width: 6px; /* Reduced width */
+}
+
+.leaderboard-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px; /* Reduced radius */
+}
+
+.leaderboard-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px; /* Reduced radius */
+}
+
+.leaderboard-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-three-container {
+    margin: 10px 0 20px; /* Further reduced margin */
+    min-height: 180px; /* Reduced height */
+    padding: 5px; /* Reduced padding */
+    gap: 3px; /* Further reduced gap */
+  }
+
+  .top-player {
+    width: 90px; /* Further reduced width */
+    padding: 5px; /* Further reduced padding */
+  }
+
+  .first-place {
+    height: 150px; /* Reduced height */
+  }
+
+  .second-place,
+  .third-place {
+    height: 140px; /* Reduced height */
+  }
+
+  .first-place .trophy {
+    width: 50px; /* Further reduced size */
+    height: 50px;
+  }
+
+  .second-place .trophy,
+  .third-place .trophy {
+    width: 40px; /* Further reduced size */
+    height: 40px;
+  }
+
+  .spusername {
+    font-size: 12px; /* Reduced font size */
+  }
+}

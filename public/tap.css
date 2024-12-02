@@ -1,0 +1,181 @@
+/* tap.css */
+.logo-container {
+    position: fixed;
+    display: flex;
+    bottom: 120px;
+    left: 20%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width: 300px; /* Default size */
+    height: 300px;
+}
+
+.circular-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.0); /* Inner background */
+    border: 10px solid rgba(123, 104, 238, 0.9); /* Increased stroke thickness */
+    box-shadow: 0 0 25px rgba(123, 104, 238, 0.5), /* Glow spread */
+                0 0 50px rgba(123, 104, 238, 0.5); /* Outer glow spread */
+}
+
+@media (max-width: 360px) {
+    .logo-container {
+        width: 230px;
+        height: 250px;
+        left: 17%;
+        bottom: 100px;
+    }
+}
+
+/* Medium screens: max-width 480px */
+@media (max-width: 480px) {
+    .logo-container {
+        width: 270px;
+        height: 270px;
+        left: 18%;
+        bottom: 110px;
+    }
+}
+
+/* Larger tablets: max-width 768px */
+@media (max-width: 768px) {
+    .logo-container {
+        width: 290px;
+        height: 290px;
+        left: 19%;
+        bottom: 115px;
+    }
+}
+
+/* Large desktops: max-width 1024px */
+@media (max-width: 1024px) {
+    .logo-container {
+        width: 280px;
+        height: 280px;
+        left: 15%;
+        bottom: 100px;
+    }
+}
+
+/* Very large screens */
+@media (min-width: 1440px) {
+    .logo-container {
+        width: 320px;
+        height: 350px;
+        left: 22%;
+        bottom: 140px;
+    }
+}
+
+.tap-battery {
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    width: 30px;
+    height: 50px;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.tap-battery::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--fill-percentage, 100%);
+    background: linear-gradient(to top,
+        #7b68ee 0%,
+        #00ffff 100%
+    );
+    transition: height 0.3s ease;
+}
+
+.tap-battery::after {
+    content: attr(data-status);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    white-space: nowrap;
+    color: white;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.tap-battery[data-status^="Recharging"]::before {
+    height: 0;
+    background: linear-gradient(to top,
+        #ff8800 0%, /* Changed from #ff4444 */
+        #ffdd00 100% /* Changed from #ff8888 */
+    );
+}
+.tap-battery[data-status^="Recharging"]::after {
+    content: "⚡ Recharging"; /* Added the lightning emoji */
+}
+.tap-battery[data-status^="Recharging"] {
+    animation: rechargePulse 2s infinite;
+}
+
+@keyframes rechargePulse {
+    0% { border-color: #fff; }
+    50% { border-color: #ff4444; }
+    100% { border-color: #fff; }
+}
+
+.tap-battery[data-status="500 taps left"]::before {
+    animation: batteryPulse 2s infinite;
+}
+
+@keyframes batteryPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.cosmic-coin {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99;
+    animation: coinFloat 1s ease-out forwards;
+    transform-origin: center;
+}
+
+.coin-value {
+    font-size: 28px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+    display: block;
+}
+
+@keyframes coinFloat {
+    0% {
+        transform: scale(0.8) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2) translateY(-40px);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .coin-value {
+        font-size: 24px;
+    }
+
+    .tap-battery[data-status^="Recharging"]::after {
+        font-size: 9px;
+        width: 30px;
+    }
+}

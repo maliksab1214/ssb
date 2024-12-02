@@ -1,0 +1,310 @@
+/* Modern Dark Theme Cards Layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #1a1a1a;
+}
+
+.card-box {
+    background: #2a2a2a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #333;
+}
+
+.card-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    border-color: #4CAF50;
+}
+
+.card-image {
+    padding: 20px;
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    position: relative;
+}
+
+.card-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.3));
+}
+
+.card-level {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card-content h3 {
+    margin: 0 0 12px 0;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.card-stats {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #4CAF50;
+}
+
+.stat-label {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.stat img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.update-card-btn {
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.update-card-btn:disabled {
+    background: #333;
+    cursor: not-allowed;
+}
+
+.update-card-btn:hover:not(:disabled) {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.countdown {
+    color: #888;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 8px;
+    min-height: 16px;
+}
+
+.profit-header {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    margin-bottom: 0;
+    color: white;
+    border-bottom: 1px solid #333;
+}
+
+.profit-header h2 {
+    margin: 0 0 12px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #4CAF50;
+}
+
+#profitDisplay {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4CAF50;
+}
+
+.profit-label {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Lock icon for disabled cards */
+.card-box.disabled::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .card-image {
+        height: 100px;
+    }
+
+    .card-image img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card-content h3 {
+        font-size: 0.9rem;
+    }
+
+    .stat-value {
+        font-size: 0.9rem;
+    }
+
+    .update-card-btn {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+/* Add these styles to your existing CSS */
+.card-box.locked {
+    position: relative;
+    filter: grayscale(0.7);
+}
+
+.card-box.locked::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+    border-radius: 16px;
+}
+
+.lock-message {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.lock-message i {
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+.lock-message p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #ccc;
+}
+/* Add to your existing cards.css */
+.sections-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.section-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.section-tab:hover {
+    background: #333;
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.section-tab.active {
+    background: #4CAF50;
+    color: white;
+    border-color: #45a049;
+}
+
+.section-tab i {
+    font-size: 1.1rem;
+}
+
+.cards-content {
+    min-height: 400px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .sections-tabs {
+        padding: 12px;
+        gap: 6px;
+    }
+
+    .section-tab {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .section-tab i {
+        font-size: 1rem;
+    }
+}

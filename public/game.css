@@ -1,0 +1,166 @@
+.reddit-game-container {
+  transition: all 0.3s ease;
+}
+
+/* Default state (not collected, not banned) */
+.reddit-game-container .check-button {
+  background: rgba(0, 255, 157, 0.2);
+  color: #00ff9d;
+  border: 2px solid #00ff9d;
+}
+
+.reddit-game-container .word-box {
+  border-color: #00ff9d;
+  color: #00ff9d;
+}
+
+/* Collected state - green theme */
+.reddit-game-container.game-collected .check-button {
+  background: rgba(0, 255, 0, 0.3);
+  color: #00ff00;
+  border: 2px solid #00ff00;
+}
+
+.reddit-game-container.game-collected .word-box {
+  border-color: #00ff00;
+  color: #00ff00;
+}
+
+/* Banned state - silver/dark theme */
+.reddit-game-container.game-banned .check-button {
+  background: rgba(192, 192, 192, 0.2);
+  color: #a9a9a9;
+  border: 2px solid #a9a9a9;
+}
+
+.reddit-game-container.game-banned .word-box {
+  border-color: #a9a9a9;
+  color: #a9a9a9;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 10px;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 900px;
+  /* Remove flex: 1 to prevent stretching */
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), inset 0 0 16px rgba(255, 255, 255, 0.1);
+  /* Add height fitting to content */
+  height: fit-content;
+}
+
+.word-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  /* Add margin to create proper spacing */
+  margin-bottom: 4px;
+}
+
+.word-slot:last-child {
+  margin-bottom: 0;
+}
+
+.slot-number {
+  color: #00ff9d;
+  font-size: 1.1em;
+  font-weight: bold;
+  width: 25px;
+  text-align: right;
+  padding-right: 8px;
+}
+
+.word-box {
+  flex-grow: 1;
+  padding: 8px 15px;
+  background: transparent;
+  color: #00ff9d;
+  border: 2px solid #00ff9d;
+  border-radius: 8px;
+  cursor: move;
+  user-select: none;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Game header styling */
+.game-header {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: rgba(0, 255, 157, 0.1);
+  border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.retries, .rp-coins {
+  padding: 8px 15px;
+  border-radius: 6px;
+  background: rgba(0, 255, 157, 0.1);
+  color: #00ff9d;
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  font-size: 0.9em;
+}
+
+/* Check button positioning */
+.check-button-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.check-button {
+  background: rgba(0, 255, 157, 0.2);
+  color: #00ff9d;
+  border: 2px solid #00ff9d;
+  padding: 10px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 900px;
+}
+
+.check-button:hover {
+  background: rgba(0, 255, 157, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .game-grid {
+    gap: 10px;
+    padding: 5px;
+  }
+  
+  .word-box {
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+  
+  .slot-number {
+    font-size: 1em;
+    width: 20px;
+  }
+}

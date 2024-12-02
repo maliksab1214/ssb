@@ -1,0 +1,23 @@
+.decorative-bar {
+  position: fixed;
+  top: 100px; /* Positioned slightly from the top */
+  left: 0;
+  width: 100%;
+  height: 120px; /* Expanded height */
+  background-color: #222;
+  border-top: 4px solid #5D3A6B;
+  border-radius: 30px 30px 0 0;
+  z-index: -1;
+}
+
+.small-accent {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 10px;
+  width: 90px;
+  background-color: #5D3A6B;
+  border-radius: 10px;
+  z-index: 10;
+}
