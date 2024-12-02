@@ -1,0 +1,269 @@
+{
+  "profitPerHour": 9000,
+  "currentTime": "2024-12-02T17:38:10.128Z",
+  "last3Hours": "2024-12-02T20:38:10.128Z",
+  "miners": {
+    "card1": {
+      "cardName": "Novice Mining Rig",
+      "coins": 3200,
+      "updateLevel": 0,
+      "perHourProfit": 670,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card2": {
+      "cardName": "Farming",
+      "coins": 4700,
+      "updateLevel": 0,
+      "perHourProfit": 1000,
+      "nextUpdateTime": "2024-11-15T09:38:27.142Z"
+    },
+    "card3": {
+      "cardName": "High-Performance Mining Station",
+      "coins": 4200,
+      "updateLevel": 0,
+      "perHourProfit": 2100,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card4": {
+      "cardName": "Staking",
+      "coins": 7500,
+      "updateLevel": 0,
+      "perHourProfit": 2300,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card5": {
+      "cardName": "Swap PNTR",
+      "coins": 7600,
+      "updateLevel": 0,
+      "perHourProfit": 3400,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card6": {
+      "cardName": "Budget plan",
+      "coins": 9800,
+      "updateLevel": 0,
+      "perHourProfit": 4300,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card7": {
+      "cardName": "Launch PNTR",
+      "coins": 11600,
+      "updateLevel": 0,
+      "perHourProfit": 6400,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card8": {
+      "cardName": "Liquidity",
+      "coins": 1600,
+      "updateLevel": 1,
+      "perHourProfit": 3625,
+      "lock": {
+        "currentLevel": 4
+      },
+      "nextUpdateTime": "2024-12-02T15:00:21.663Z"
+    }
+  },
+  "economy": {
+    "card9": {
+      "cardName": "Market",
+      "coins": 9500,
+      "updateLevel": 0,
+      "perHourProfit": 8900,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card10": {
+      "cardName": "Market management",
+      "coins": 12000,
+      "updateLevel": 0,
+      "perHourProfit": 13200,
+      "lock": {
+        "card": "card7",
+        "updateLevel": 6
+      },
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card11": {
+      "cardName": "Add liquidity",
+      "coins": 7600,
+      "updateLevel": 0,
+      "perHourProfit": 6800,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card12": {
+      "cardName": "Regional Hedge Fund",
+      "coins": 5000,
+      "updateLevel": 0,
+      "perHourProfit": 4800,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card13": {
+      "cardName": "Metropolitan Hedge Fund",
+      "coins": 13000,
+      "updateLevel": 0,
+      "perHourProfit": 11900,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card14": {
+      "cardName": "National Investment Network",
+      "coins": 14000,
+      "updateLevel": 0,
+      "perHourProfit": 9000,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card15": {
+      "cardName": "Global Investment Consortium",
+      "coins": 17000,
+      "updateLevel": 0,
+      "perHourProfit": 16500,
+      "lock": {
+        "friends": {
+          "totalFriends": 3
+        }
+      },
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card16": {
+      "cardName": "International Investment Powerhouse",
+      "coins": 24000,
+      "updateLevel": 0,
+      "perHourProfit": 19800,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    }
+  },
+  "company": {
+    "card17": {
+      "cardName": "Collector",
+      "coins": 2300,
+      "updateLevel": 0,
+      "perHourProfit": 2600,
+      "lock": {
+        "currentLevel": 6
+      },
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card18": {
+      "cardName": "Crypto",
+      "coins": 12640,
+      "updateLevel": 1,
+      "perHourProfit": 9425,
+      "nextUpdateTime": "2024-12-02T15:00:18.358Z"
+    },
+    "card19": {
+      "cardName": "Def",
+      "coins": 27000,
+      "updateLevel": 0,
+      "perHourProfit": 26500,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card20": {
+      "cardName": "Panther games",
+      "coins": 43000,
+      "updateLevel": 0,
+      "perHourProfit": 32000,
+      "lock": {
+        "friends": {
+          "totalFriends": 2
+        }
+      },
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card21": {
+      "cardName": "Ai - market",
+      "coins": 36000,
+      "updateLevel": 0,
+      "perHourProfit": 24000,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card22": {
+      "cardName": "Upgrade platform",
+      "coins": 53000,
+      "updateLevel": 0,
+      "perHourProfit": 47900,
+      "lock": {
+        "card": "card18",
+        "updateLevel": 8
+      },
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card23": {
+      "cardName": "NFT collection",
+      "coins": 8200,
+      "updateLevel": 0,
+      "perHourProfit": 3700,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card24": {
+      "cardName": "Donation",
+      "coins": 13000,
+      "updateLevel": 0,
+      "perHourProfit": 18700,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    }
+  },
+  "lifestyle": {
+    "card25": {
+      "cardName": "Compact Urban Studio",
+      "coins": 23000,
+      "updateLevel": 0,
+      "perHourProfit": 17600,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card26": {
+      "cardName": "Crypto management",
+      "coins": 31000,
+      "updateLevel": 0,
+      "perHourProfit": 30000,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card27": {
+      "cardName": "Defi protocol",
+      "coins": 65000,
+      "updateLevel": 0,
+      "perHourProfit": 54000,
+      "lock": {
+        "currentLevel": 7
+      },
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card28": {
+      "cardName": "Fait payment",
+      "coins": 46000,
+      "updateLevel": 0,
+      "perHourProfit": 25000,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card29": {
+      "cardName": "Exotic Island Resort",
+      "coins": 76000,
+      "updateLevel": 0,
+      "perHourProfit": 82000,
+      "lock": {
+        "friends": {
+          "totalFriends": 5
+        }
+      },
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card30": {
+      "cardName": "Remote Island Sanctuary",
+      "coins": 5500,
+      "updateLevel": 0,
+      "perHourProfit": 2500,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card31": {
+      "cardName": "Tranquil Island Estate",
+      "coins": 39000,
+      "updateLevel": 0,
+      "perHourProfit": 17000,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    },
+    "card32": {
+      "cardName": "Luxury Private Island",
+      "coins": 54000,
+      "updateLevel": 0,
+      "perHourProfit": 34200,
+      "nextUpdateTime": "2024-11-15T09:30:14.374Z"
+    }
+  }
+}

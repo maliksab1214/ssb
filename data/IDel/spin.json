@@ -1,0 +1,11 @@
+{
+  "spin": {
+    "current_date": "2024-12-02",
+    "collected_date": "2024-12-02",
+    "spintickets": 3,
+    "notification": {
+      "show": false,
+      "message": ""
+    }
+  }
+}

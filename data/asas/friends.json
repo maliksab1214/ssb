@@ -1,0 +1,14 @@
+{
+  "totalFriends": 3,
+  "friends": {
+    "friend1": {
+      "name": "sasas"
+    },
+    "friend2": {
+      "name": "dadaad"
+    },
+    "friend3": {
+      "name": "dadaad"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "defaultSkin": "skin5",
+  "skins": {
+    "default": {
+      "id": "default",
+      "name": "Default Skin",
+      "path": "images/logo1.png",
+      "thumbnail": "images/logo1.png",
+      "description": "The classic default skin"
+    },
+    "skin2": {
+      "id": "skin2",
+      "name": "Skin 2",
+      "path": "images/2.png",
+      "thumbnail": "images/2.png",
+      "description": "Skin gives 20% power boost"
+    },
+    "skin3": {
+      "id": "skin3",
+      "name": "Skin 3",
+      "path": "images/3.png",
+      "thumbnail": "images/3.png",
+      "description": "Increases mining efficiency by 15%"
+    },
+    "skin4": {
+      "id": "skin4",
+      "name": "Skin 4",
+      "path": "images/4.png",
+      "thumbnail": "images/4.png",
+      "description": "Enhances battery life by 25%"
+    },
+    "skin5": {
+      "id": "skin5",
+      "name": "Skin 5",
+      "path": "images/5.png",
+      "thumbnail": "images/5.png",
+      "description": "Boosts coin generation by 30%"
+    },
+    "skin6": {
+      "id": "skin6",
+      "name": "Skin 6",
+      "path": "images/6.png",
+      "thumbnail": "images/6.png",
+      "description": "Provides 40% faster recharge rate"
+    },
+    "skin7": {
+      "id": "skin7",
+      "name": "Skin 7",
+      "path": "images/7.png",
+      "thumbnail": "images/7.png",
+      "description": "Double tap coins bonus"
+    },
+    "skin8": {
+      "id": "skin8",
+      "name": "Skin 8",
+      "path": "images/8.png",
+      "thumbnail": "images/8.png",
+      "description": "Ultimate skin with 50% all stats boost"
+    },
+    "skin9": {
+      "id": "skin9",
+      "name": "Skin 9",
+      "path": "images/9.png",
+      "thumbnail": "images/9.png",
+      "description": "Spin Luck 20%"
+    },
+    "skin10": {
+      "id": "skin10",
+      "name": "Skin 10",
+      "path": "images/10.png",
+      "thumbnail": "images/10.png",
+      "description": "Bettry Recharge 5% faster"
+    },
+    "skin11": {
+      "id": "skin11",
+      "name": "Skin 11",
+      "path": "images/11.png",
+      "thumbnail": "images/11.png",
+      "description": "Mining upgrads 5%"
+    },
+    "skin12": {
+      "id": "skin12",
+      "name": "Skin 12",
+      "path": "images/12.png",
+      "thumbnail": "images/12.png",
+      "description": "Spin Luck 40%"
+    },
+    "skin13": {
+      "id": "skin13",
+      "name": "Skin 13",
+      "path": "images/13.png",
+      "thumbnail": "images/13.png",
+      "description": "More Coins On Freinds Invitaion"
+    },
+    "skin14": {
+      "id": "skin14",
+      "name": "Skin 14",
+      "path": "images/14.png",
+      "thumbnail": "images/14.png",
+      "description": "Cards Upgrading Discount"
+    },
+    "skin15": {
+      "id": "skin15",
+      "name": "Skin 15",
+      "path": "images/15.png",
+      "thumbnail": "images/15.png",
+      "description": "faster 5% perhourprofit"
+    }
+  }
+}
