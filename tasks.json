@@ -1,0 +1,70 @@
+{
+  "dailyTasks": [
+    {
+      "taskId": "task1",
+      "name": "Like Our Post On Facebook",
+      "url": "https://www.facebook.com/share/17wTzwTynW/",
+      "points": 20000,
+      "completed": false,
+      "timer": 15
+    },
+    {
+      "taskId": "task2",
+      "name": "Like Our Post On Instagram",
+      "url": "https://www.instagram.com/p/DDFZoTpJCLc/?igsh=M3R3NHp4OHFybjNt",
+      "points": 30000,
+      "completed": false,
+      "timer": 15
+    }
+  ],
+  "socialMediaTasks": [
+    {
+      "taskId": "task4",
+      "name": "Join Our Telegram Channel",
+      "url": "https://t.me/PantherPNTR",
+      "points": 30000,
+      "completed": false,
+      "timer": 15
+    },
+    {
+      "taskId": "task8",
+      "name": "Follow our Facebook Page",
+      "url": "https://www.facebook.com/profile.php?id=61566930762519&mibextid=ZbWKwL",
+      "points": 40000,
+      "completed": false,
+      "timer": 15
+    },
+    {
+      "taskId": "task5",
+      "name": "Follow on Twiter",
+      "url": "https://x.com/PantherPNTR?s=09",
+      "points": 50000,
+      "completed": false,
+      "timer": 15
+    },
+    {
+      "taskId": "task6",
+      "name": "Subscribe Youtube Channel",
+      "url": "https://youtube.com/@panther-pntr?si=c9sPMkDCi0z9vFMB",
+      "points": 60000,
+      "completed": false,
+      "timer": 15
+    },
+    {
+      "taskId": "task7",
+      "name": "Follow On tiktok",
+      "url": "https://vm.tiktok.com/ZSjYwJwFm/",
+      "points": 40000,
+      "completed": false,
+      "timer": 15
+    },
+    {
+      "taskId": "task9",
+      "name": "Follow On Instgram",
+      "url": "https://www.instagram.com/pantherpntr?igsh=OXgwMzA0cDF3bmdy",
+      "points": 40000,
+      "completed": false,
+      "timer": 15
+    }
+  ]
+}
